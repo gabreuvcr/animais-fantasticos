@@ -5,11 +5,9 @@ function initChangeTheme() {
     if (this.innerHTML === "Dark") {
       this.innerHTML = "Light";
       map.src = "img/mapa-dark.png";
-      //map.setAttribute('src', 'img/mapa-dark.png');
     } else {
       this.innerHTML = "Dark";
       map.src = "img/mapa-light.png";
-      //map.setAttribute('src', 'img/mapa-light.png');
     }
     document.body.classList.toggle("light");
   }
@@ -76,7 +74,29 @@ function initSmoothScroll() {
   })
 }
 
+function initScrollAnimation() {
+  const sections = document.querySelectorAll('.js-scroll');
+  if(sections.length) {
+    const windowHeight = window.innerHeight * 0.65; 
+    
+    function scrollAnimation() {
+      sections.forEach((section) => {
+        const sectionTop = section.getBoundingClientRect().top;
+        const isSectionVisible = (sectionTop - windowHeight) < 0;
+        if(isSectionVisible) {
+          section.classList.add('ativo');
+        } else {
+          section.classList.remove('ativo');
+        }
+      });
+    }
+    scrollAnimation();
+    window.addEventListener('scroll', scrollAnimation);
+  }
+}
+
 initChangeTheme();
 initTabNav();
 initAccordion();
 initSmoothScroll();
+initScrollAnimation();
