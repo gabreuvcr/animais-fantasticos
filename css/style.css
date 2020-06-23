@@ -1,19 +1,19 @@
-html {
+[data-theme='dark'] {
   --destaque: #49552d;
   --detalhe: #8d613c;
   --font: #d1d1d1;
   --background: #111;
 }
 
-html.enlarge-text {
-  font-size: 150%;
-}
-
-.light {
+[data-theme='light'] {
   --destaque: #ffbb55;
   --detalhe: #ee5544;
   --font: #361d00;
   --background: #f8f4ea;
+}
+
+html.enlarge-text {
+  font-size: 150%;
 }
 
 body,
@@ -249,16 +249,23 @@ body {
   }
 }
 
-.js .js-tabcontent section {
+.js [data-tab="content"] section {
   display: none;
 }
 
-.js-tabcontent section.ativo {
+[data-tab="content"] section.ativo {
   display: block !important;
-  animation: show .5s forwards;
 }
 
-@keyframes show {
+[data-tab="content"] section.ativo.show-right {
+  animation: show-right .5s forwards;
+}
+
+[data-tab="content"] section.ativo.show-down {
+  animation: show-down .5s forwards;
+}
+
+@keyframes show-right {
   from {
     opacity: 0;
     transform: translate3d(-30px, 0, 0);
@@ -269,11 +276,22 @@ body {
   }
 }
 
-.js .js-accordion dd {
+@keyframes show-down {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.js [data-anime="accordion"] dd {
   display: none;
 }
 
-.js-accordion dt::after {
+[data-anime="accordion"] dt::after {
   content: '⯆';
   margin-left: 10px;
   font-size: 14px;
@@ -283,13 +301,13 @@ body {
   display: inline-block;
 }
 
-.js-accordion dt.ativo::after {
+[data-anime="accordion"] dt.ativo::after {
   /*content: '⯅';*/
 
   transform: rotate(-120deg);
 }
 
-.js-accordion dd.ativo {
+[data-anime="accordion"] dd.ativo {
   display: block;
   animation: slideDown 1s forwards;
 }
@@ -305,13 +323,13 @@ body {
   }
 }
 
-.js .js-scroll {
+.js [data-anime="scroll"] {
   opacity: 0;
   transform: translate3d(-30px, 0, 0);
   transition: .3s;
 }
 
-.js .js-scroll.ativo {
+.js [data-anime="scroll"].ativo {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }

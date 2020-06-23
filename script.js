@@ -1,33 +1,34 @@
 function initChangeTheme() {
   function changeTheme(event) {
     event.preventDefault();
-    map = document.querySelector('.mapa img');
+    const map = document.querySelector('.mapa img');
 
-    if (this.innerHTML === "Dark") {
-      this.innerHTML = "Light";
-      map.src = "img/mapa-dark.png";
-    } else {
-      this.innerHTML = "Dark";
-      map.src = "img/mapa-light.png";
+    if (document.body.dataset.theme === 'light') {
+      this.innerText = 'Light';
+      map.src = 'img/mapa-dark.png';
+      document.body.dataset.theme = 'dark'
+    } else if (document.body.dataset.theme === 'dark') {
+      this.innerText = 'Dark';
+      map.src = 'img/mapa-light.png';
+      document.body.dataset.theme = 'light'
     }
-
-    document.body.classList.toggle("light");
   }
   
-  const theme = document.querySelector(".js-theme");
-  theme.addEventListener("click", changeTheme);
+  const theme = document.querySelector('[data-button-theme]');
+  theme.addEventListener('click', changeTheme);
 }
 
 function initTabNav() {  
-  const tabMenu = document.querySelectorAll('.js-tabmenu li');
-  const tabContent = document.querySelectorAll('.js-tabcontent section');
+  const tabMenu = document.querySelectorAll('[data-tab="menu"] li');
+  const tabContent = document.querySelectorAll('[data-tab="content"] section');
 
   if (tabMenu.length && tabContent.length) {
     function activeTab(index) {
       tabContent.forEach((section) => {
         section.classList.remove('ativo');  
       });
-      tabContent[index].classList.add('ativo');
+      const direction = tabContent[index].dataset.anime;
+      tabContent[index].classList.add('ativo', direction);
     }
 
     tabMenu.forEach((itemMenu, index) => {
@@ -37,7 +38,7 @@ function initTabNav() {
 }
 
 function initAccordion() {
-  const accordionList = document.querySelectorAll('.js-accordion dt');
+  const accordionList = document.querySelectorAll('[data-anime="accordion"] dt');
 
   if (accordionList.length) {
     function activeAccordion() {
@@ -52,7 +53,7 @@ function initAccordion() {
 }
 
 function initSmoothScroll() {
-  const internalLinks = document.querySelectorAll('.js-menu a[href^="#"]');
+  const internalLinks = document.querySelectorAll('[data-menu="smooth"] a[href^="#"]');
   
   function scrollToSection(event) {
     event.preventDefault();
@@ -76,7 +77,7 @@ function initSmoothScroll() {
 }
 
 function initScrollAnimation() {
-  const sections = document.querySelectorAll('.js-scroll');
+  const sections = document.querySelectorAll('[data-anime="scroll"]');
   if (sections.length) {
     const windowHeight = window.innerHeight * 0.65; 
     
