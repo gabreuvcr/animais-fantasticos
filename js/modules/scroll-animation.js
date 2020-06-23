@@ -8,9 +8,9 @@ export default function initScrollAnimation() {
         const sectionTop = section.getBoundingClientRect().top;
         const isSectionVisible = (sectionTop - windowHeight) < 0;
         if (isSectionVisible) {
-          section.classList.add('ativo');
+          section.classList.add('active');
         } else {
-          section.classList.remove('ativo');
+          section.classList.remove('active');
         }
       });
     }

@@ -3,8 +3,8 @@ export default function initAccordion() {
 
   if (accordionList.length) {
     function activeAccordion() {
-      this.classList.toggle('ativo');
-      this.nextElementSibling.classList.toggle('ativo');
+      this.classList.toggle('active');
+      this.nextElementSibling.classList.toggle('active');
     }
 
     accordionList.forEach((item) => {
