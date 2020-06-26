@@ -4,7 +4,7 @@ export default function outsideClick(element, userEvents, callback) {
 
   if (!element.hasAttribute(outside)) {
     userEvents.forEach((userEvent) => {
-      html.addEventListener(userEvent, handleOutsideClick);
+      setTimeout(() => html.addEventListener(userEvent, handleOutsideClick));
     });
     element.setAttribute(outside, '');
   }
