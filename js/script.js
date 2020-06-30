@@ -8,6 +8,7 @@ import initTooltip from './modules/tooltip.js';
 import initDropdownMenu from './modules/dropdown-menu.js';
 import initMenuMobile from './modules/menu-mobile.js';
 import initNumberAnimation from './modules/number-animation.js';
+import initOperation from './modules/operation.js';
 
 initChangeTheme();
 initSmoothScroll();
@@ -19,3 +20,4 @@ initTooltip();
 initDropdownMenu();
 initMenuMobile();
 initNumberAnimation();
+initOperation();
