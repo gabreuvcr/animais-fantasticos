@@ -1,15 +1,19 @@
 [data-theme='dark'] {
-  --destaque: #49552d;
-  --detalhe: #8d613c;
+  --accent: #49552d;
+  --detail: #8d613c;
   --font: #d1d1d1;
   --background: #111;
+  --green-detail: #15791e;
+  --red-closed: #b92c1d;
 }
 
 [data-theme='light'] {
-  --destaque: #ffbb55;
-  --detalhe: #ee5544;
+  --accent: #ffbb55;
+  --detail: #ee5544;
   --font: #361d00;
   --background: #f8f4ea;
+  --green-detail: #3f4;
+  --red-closed: #e54;
 }
 
 html.enlarge-text {
@@ -53,7 +57,7 @@ body {
   grid-column: 3/5;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  background: var(--destaque);
+  background: var(--accent);
 }
 
 .menu ul {
@@ -101,7 +105,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 1rem;
-  color: var(--detalhe);
+  color: var(--detail);
 }
 
 .animais h2::before {
@@ -110,7 +114,7 @@ body {
   width: 40px;
   height: 10px;
   margin-right: 10px;
-  background: var(--destaque);
+  background: var(--accent);
 }
 
 .animais p {
@@ -134,7 +138,7 @@ body {
 }
 
 .animais-lista::-webkit-scrollbar-thumb {
-  background: var(--destaque);
+  background: var(--accent);
   border-left: 4px solid var(--background);
   border-right: 4px solid var(--background);
 }
@@ -161,7 +165,7 @@ body {
   margin-top: 2rem;
   margin-bottom: 0.5rem;
   cursor: pointer;
-  color: var(--detalhe);
+  color: var(--detail);
 }
 
 .faq-lista dt::before {
@@ -170,7 +174,7 @@ body {
   width: 20px;
   height: 10px;
   margin-right: 10px;
-  background: var(--destaque);
+  background: var(--accent);
 }
 
 .faq-lista dd {
@@ -198,13 +202,13 @@ body {
   width: 20px;
   height: 10px;
   margin-right: 10px;
-  background: var(--destaque);
+  background: var(--accent);
 }
 
 .copy {
   grid-column: 3/5;
   margin-bottom: 2rem;
-  background: var(--destaque);
+  background: var(--accent);
 }
 
 .copy p {
@@ -305,8 +309,6 @@ body {
 }
 
 [data-anime="accordion"] dt.active::after {
-  /*content: '⯅';*/
-
   transform: rotate(-120deg);
 }
 
@@ -342,18 +344,18 @@ body {
   content: '';
   width: 8px;
   height: 8px;
-  background: #e54;
+  background: var(--red-closed);
   border-radius: 50%;
   margin-left: 4px;
   border: 2px solid #000;
 }
 
 [data-week].open::after {
-  background: #3f4;
+  background: var(--green-detail);
 }
 
 .price-btc {
-  background: #3f4;
+  background: var(--green-detail);
   padding: .2rem .5rem;
   font-weight: bold;
   border-radius: 2px;
