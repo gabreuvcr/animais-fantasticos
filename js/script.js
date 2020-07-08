@@ -7,8 +7,8 @@ import initModal from './modules/modal.js';
 import initTooltip from './modules/tooltip.js';
 import initDropdownMenu from './modules/dropdown-menu.js';
 import initMenuMobile from './modules/menu-mobile.js';
-import initNumberAnimation from './modules/number-animation.js';
 import initOperation from './modules/operation.js';
+import initFetchAnimals from './modules/fetch-animals.js';
 
 initChangeTheme();
 initSmoothScroll();
@@ -19,5 +19,5 @@ initModal();
 initTooltip();
 initDropdownMenu();
 initMenuMobile();
-initNumberAnimation();
 initOperation();
+initFetchAnimals();
